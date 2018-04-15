@@ -53,4 +53,5 @@ public class PatientController {
     public ResponseEntity<?> update(@RequestBody Patient patient) {
         patientService.update(patient);
         return ResponseEntity.noContent().build();
-    }}
+    }
+}
