@@ -18,15 +18,15 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/sampleType")
-public class SampleController {
+public class SampleTypeController {
 
 
     @Autowired
     SampleService sampleService;
 
-    @GetMapping(value = "/{parent_id}")
+    @GetMapping(value = "/{sampleTyp_parent_id}")
     public @ResponseBody
-    ResponseEntity<List<SampleType>> get(@PathVariable("parent_id") String parentId) {
+    ResponseEntity<List<SampleType>> get(@PathVariable("sampleTyp_parent_id") String parentId) {
         return new ResponseEntity(sampleService.get(parentId), HttpStatus.OK);
     }
 

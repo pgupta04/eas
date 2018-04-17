@@ -37,8 +37,11 @@ public class PatientService {
         patientRepository.delete(patientId);
     }
 
-    public Patient save(Patient patient) {
-        return patientRepository.save(patient);
+    public Patient save(List<Patient> patients) {
+        for(Patient patient:patients) {
+            patientRepository.save(patient);
+        }
+        return null;
     }
 
     public void update(Patient product) {

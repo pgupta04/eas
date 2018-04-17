@@ -34,9 +34,9 @@ public class CommonController {
     }
 
     @PostMapping(value = "/storageBin")
-    public ResponseEntity create(@RequestBody StorageBin storageBin) {
-        StorageBin savedStorageBin = commonService.saveStorageBin(storageBin);
-        return ResponseEntity.created(URI.create("/" + storageBin.getStorageBinId())).body(savedStorageBin);
+    public ResponseEntity create(@RequestBody List<StorageBin> storageBins) {
+        commonService.saveStorageBin(storageBins);
+        return ResponseEntity.created(URI.create("/")).body("Success");
     }
 
     @DeleteMapping(value = "/storageBin/{storage_bin_id}")

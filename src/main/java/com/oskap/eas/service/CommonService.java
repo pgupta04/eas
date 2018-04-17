@@ -26,8 +26,11 @@ public class CommonService {
         return (List<StorageBin>)storageBinRepository.findAll();
     }
 
-    public StorageBin saveStorageBin(StorageBin storageBin) {
-        return storageBinRepository.save(storageBin);
+    public StorageBin saveStorageBin(List<StorageBin> storageBins) {
+        for(StorageBin storageBin:storageBins){
+            storageBinRepository.save(storageBin);
+        }
+        return null;
     }
 
     public void deleteStorageBin(Long storageBinId) {

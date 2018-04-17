@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
 
 /**
  * Created by ZNE45571 on 4/14/18.
@@ -44,9 +45,9 @@ public class PatientController {
     }
 
     @PostMapping
-    public ResponseEntity create(@RequestBody Patient patient) {
-        Patient savedPatient = patientService.save(patient);
-        return ResponseEntity.created(URI.create("/" + patient.getPatientId())).body(savedPatient);
+    public ResponseEntity create(@RequestBody List<Patient> patients) {
+        patientService.save(patients);
+        return ResponseEntity.created(URI.create("/" )).body("success");
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
