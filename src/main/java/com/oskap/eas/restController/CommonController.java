@@ -44,5 +44,4 @@ public class CommonController {
         commonService.deleteStorageBin(Long.valueOf(storageBinId));
         return new ResponseEntity(storageBinId,HttpStatus.OK);
     }
-
 }

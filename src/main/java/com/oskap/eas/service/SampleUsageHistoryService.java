@@ -1,12 +1,11 @@
 package com.oskap.eas.service;
 
-import com.oskap.eas.entity.PatientSample;
+import com.oskap.eas.entity.PatientSamples;
 import com.oskap.eas.entity.SampleUsageHistory;
 import com.oskap.eas.persistence.PatientSampleRepository;
 import com.oskap.eas.persistence.SampleUsageHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.MultiValueMap;
 
 import java.util.Date;
 import java.util.List;
@@ -24,9 +23,9 @@ public class SampleUsageHistoryService {
     PatientSampleRepository patientSampleRepository;
 
     public List<SampleUsageHistory> get(Long patientSampleId) {
-        PatientSample patientSample = new PatientSample();
-        patientSample.setPatientSampleId(patientSampleId);
-        return sampleUsageHistoryRepository.findByPatientSample(patientSample);
+        PatientSamples patientSamples = new PatientSamples();
+        patientSamples.setPatientSampleId(patientSampleId);
+        return sampleUsageHistoryRepository.findByPatientSamples(patientSamples);
     }
 
     public SampleUsageHistory turnIn(SampleUsageHistory sampleUsageHistory) {

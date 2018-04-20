@@ -15,7 +15,7 @@ public class SampleUsageHistory {
 
     @ManyToOne
     @JoinColumn(name = "patientSampleId")
-    private PatientSample patientSample;
+    private PatientSamples patientSamples;
 
     @Column(nullable = false)
     private String issuedTo;
@@ -33,12 +33,12 @@ public class SampleUsageHistory {
         this.sampleUsageHistId = sampleUsageHistId;
     }
 
-    public PatientSample getPatientSample() {
-        return patientSample;
+    public PatientSamples getPatientSamples() {
+        return patientSamples;
     }
 
-    public void setPatientSample(PatientSample patientSample) {
-        this.patientSample = patientSample;
+    public void setPatientSamples(PatientSamples patientSamples) {
+        this.patientSamples = patientSamples;
     }
 
     public String getIssuedTo() {

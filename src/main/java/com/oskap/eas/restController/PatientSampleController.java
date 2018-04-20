@@ -1,7 +1,7 @@
 package com.oskap.eas.restController;
 
 import com.oskap.eas.entity.Patient;
-import com.oskap.eas.entity.PatientSample;
+import com.oskap.eas.entity.PatientSamples;
 import com.oskap.eas.service.PatientSampleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
 
 /**
  * Created by ZNE45571 on 4/16/18.
@@ -23,8 +24,8 @@ public class PatientSampleController {
 
     @GetMapping(value = "/{sample_id}")
     public @ResponseBody
-    ResponseEntity<Patient> get(@PathVariable("sample_id") String sampleId) {
-        return new ResponseEntity(patientSampleService.get(Long.valueOf(sampleId)), HttpStatus.OK);
+    ResponseEntity<Patient> get(@PathVariable("sample_id") String barcode) {
+        return new ResponseEntity(patientSampleService.get(barcode), HttpStatus.OK);
     }
 
     @GetMapping
@@ -46,13 +47,13 @@ public class PatientSampleController {
     }
 
     @PostMapping
-    public ResponseEntity create(@RequestBody PatientSample patientSample) {
-        PatientSample savedPatientSample = patientSampleService.save(patientSample);
-        return ResponseEntity.created(URI.create("/" + savedPatientSample.getPatientSampleId())).body(savedPatientSample);
+    public ResponseEntity create(@RequestBody List<PatientSamples> patientSamples) {
+        patientSampleService.save(patientSamples);
+        return ResponseEntity.created(URI.create("/")).body("success");
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> update(@RequestBody PatientSample sample) {
+    public ResponseEntity<?> update(@RequestBody PatientSamples sample) {
         patientSampleService.update(sample);
         return ResponseEntity.noContent().build();
     }

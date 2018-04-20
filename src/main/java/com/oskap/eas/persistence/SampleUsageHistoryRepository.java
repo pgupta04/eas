@@ -1,6 +1,6 @@
 package com.oskap.eas.persistence;
 
-import com.oskap.eas.entity.PatientSample;
+import com.oskap.eas.entity.PatientSamples;
 import com.oskap.eas.entity.SampleUsageHistory;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
@@ -11,5 +11,5 @@ import java.util.List;
  */
 public interface SampleUsageHistoryRepository extends PagingAndSortingRepository<SampleUsageHistory,Long> {
 
-    List<SampleUsageHistory> findByPatientSample(PatientSample patientSample);
+    List<SampleUsageHistory> findByPatientSamples(PatientSamples patientSamples);
 }

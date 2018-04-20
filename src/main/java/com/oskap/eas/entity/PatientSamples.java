@@ -6,17 +6,17 @@ import javax.persistence.*;
  * Created by ZNE45571 on 4/15/18.
  */
 @Entity
-public class PatientSample {
+public class PatientSamples {
 
     @Id
     @GeneratedValue
     private Long patientSampleId;
 
     @Column(nullable = false)
-    private Long serialNum;
+    private String barcode;
 
     @Column(nullable = false)
-    private float origionalQuantity;
+    private float originalQuantity;
 
     @Column(nullable = false)
     private float remainingQuantity;
@@ -42,22 +42,6 @@ public class PatientSample {
 
     public void setPatientSampleId(Long patientSampleId) {
         this.patientSampleId = patientSampleId;
-    }
-
-    public Long getSerialNum() {
-        return serialNum;
-    }
-
-    public void setSerialNum(Long serialNum) {
-        this.serialNum = serialNum;
-    }
-
-    public float getOrigionalQuantity() {
-        return origionalQuantity;
-    }
-
-    public void setOrigionalQuantity(float origionalQuantity) {
-        this.origionalQuantity = origionalQuantity;
     }
 
     public float getRemainingQuantity() {
@@ -98,5 +82,21 @@ public class PatientSample {
 
     public void setStorageBin(StorageBin storageBin) {
         this.storageBin = storageBin;
+    }
+
+    public String getBarcode() {
+        return barcode;
+    }
+
+    public void setBarcode(String barcode) {
+        this.barcode = barcode;
+    }
+
+    public float getOriginalQuantity() {
+        return originalQuantity;
+    }
+
+    public void setOriginalQuantity(float originalQuantity) {
+        this.originalQuantity = originalQuantity;
     }
 }
